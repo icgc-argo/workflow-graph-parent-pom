@@ -35,6 +35,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <reactor-rabbitmq-streams.version>0.0.6</reactor-rabbitmq-streams.version>
         <graalvm-sdk.version>20.1.0</graalvm-sdk.version>
         <jackson-databind.version>2.11.1</jackson-databind.version>
         <lombok.version>1.18.12</lombok.version>
@@ -45,6 +46,28 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.graalvm.sdk</groupId>
+                <artifactId>graal-sdk</artifactId>
+                <version>${graalvm-sdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-databind.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.pivotal.rabbitmq</groupId>
+                <artifactId>reactor-rabbitmq-streams</artifactId>
+                <version>${reactor-rabbitmq-streams.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
                 <version>${junit.bom.version}</version>
@@ -54,34 +77,18 @@
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
-
-        <!-- CORE -->
-        <dependency>
-            <groupId>org.graalvm.sdk</groupId>
-            <artifactId>graal-sdk</artifactId>
-            <version>${graalvm-sdk.version}</version>
-        </dependency>
-
-        <!-- UTIL -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson-databind.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-        </dependency>
-
-        <!-- TEST -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <repositories>
+        <repository>
+            <id>rabbitmq-maven-milestones</id>
+            <url>https://packagecloud.io/rabbitmq/maven-milestones/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
