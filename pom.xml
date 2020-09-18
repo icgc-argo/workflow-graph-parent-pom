@@ -9,8 +9,9 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Workflow Graph BOM</name>
-    <description>The parent POM for all Java + Maven repositories that make up the Workflow Graph software ecosystem</description>
+    <name>Workflow Graph Parent POM</name>
+    <description>Parent POM for all Java + Maven repositories that make up the Workflow Graph software ecosystem
+    </description>
     <url>https://github.com/icgc-argo/workflow-graph-parent-pom</url>
 
     <licenses>
@@ -36,6 +37,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <springframework.boot.version>2.2.4.RELEASE</springframework.boot.version>
         <reactor-rabbitmq-streams.version>0.0.6</reactor-rabbitmq-streams.version>
         <graalvm-sdk.version>20.1.0</graalvm-sdk.version>
         <jackson-databind.version>2.11.1</jackson-databind.version>
@@ -47,19 +49,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.graalvm.sdk</groupId>
-                <artifactId>graal-sdk</artifactId>
-                <version>${graalvm-sdk.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson-databind.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springframework.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.pivotal.rabbitmq</groupId>
@@ -74,6 +68,21 @@
                 <version>${junit.bom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.graalvm.sdk</groupId>
+                <artifactId>graal-sdk</artifactId>
+                <version>${graalvm-sdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-databind.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -93,6 +102,10 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
