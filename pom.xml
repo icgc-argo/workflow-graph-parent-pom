@@ -8,5 +8,108 @@
     <artifactId>workflow-graph-parent-pom</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>The parent POM for all Java + Maven repositories that make up the Workflow Graph software ecosystem</description>
+    <url>https://github.com/icgc-argo/workflow-graph-parent-pom</url>
 
+    <licenses>
+        <license>
+            <name>AGPL-3.0</name>
+            <url>https://raw.githubusercontent.com/icgc-argo/workflow-graph-parent-pom/develop/LICENSE</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Alexandru Lepsa</name>
+            <email>lepsalex@gmail.com</email>
+            <organization>OICR</organization>
+            <organizationUrl>https://oicr.on.ca/</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/icgc-argo/workflow-graph-parent-pom.git</connection>
+        <developerConnection>scm:git:ssh://github.com:icgc-argo/workflow-graph-parent-pom.git</developerConnection>
+        <url>https://github.com/icgc-argo/workflow-graph-parent-pom/tree/master</url>
+    </scm>
+
+    <properties>
+        <java.version>11</java.version>
+        <graalvm-sdk.version>20.1.0</graalvm-sdk.version>
+        <jackson-databind.version>2.11.1</jackson-databind.version>
+        <lombok.version>1.18.12</lombok.version>
+        <junit.bom.version>5.7.0</junit.bom.version>
+        <maven.surefire.version>2.22.2</maven.surefire.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit.bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <!-- CORE -->
+        <dependency>
+            <groupId>org.graalvm.sdk</groupId>
+            <artifactId>graal-sdk</artifactId>
+            <version>${graalvm-sdk.version}</version>
+        </dependency>
+
+        <!-- UTIL -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <!-- TEST -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>dcc-snapshot</id>
+            <name>artifacts.oicr.on.ca-snapshots</name>
+            <url>https://artifacts.oicr.on.ca/artifactory/dcc-snapshot</url>
+        </snapshotRepository>
+        <repository>
+            <id>dcc-release</id>
+            <name>artifacts.oicr.on.ca-releases</name>
+            <url>https://artifacts.oicr.on.ca/artifactory/dcc-release</url>
+        </repository>
+    </distributionManagement>
 </project>
