@@ -7,8 +7,9 @@
     <groupId>org.icgc_argo</groupId>
     <artifactId>workflow-graph-parent-pom</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-    <name>${project.groupId}:${project.artifactId}</name>
+    <name>Workflow Graph BOM</name>
     <description>The parent POM for all Java + Maven repositories that make up the Workflow Graph software ecosystem</description>
     <url>https://github.com/icgc-argo/workflow-graph-parent-pom</url>
 
