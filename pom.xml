@@ -40,7 +40,7 @@
         <springframework.boot.version>2.2.4.RELEASE</springframework.boot.version>
         <reactor-rabbitmq-streams.version>0.0.6</reactor-rabbitmq-streams.version>
         <graalvm-sdk.version>20.1.0</graalvm-sdk.version>
-        <workflow-graph-lib.version>1.2.0</workflow-graph-lib.version>
+        <workflow-graph-lib.version>1.3.0</workflow-graph-lib.version>
         <jackson-databind.version>2.11.1</jackson-databind.version>
         <apollo.version>2.3.1</apollo.version>
         <avro.version>1.10.0</avro.version>
