@@ -6,7 +6,7 @@
 
     <groupId>org.icgc_argo</groupId>
     <artifactId>workflow-graph-parent-pom</artifactId>
-    <version>1.4.0</version>
+    <version>1.5.0</version>
     <packaging>pom</packaging>
 
     <name>Workflow Graph Parent POM</name>
@@ -51,6 +51,7 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <apollo-client-maven-plugin.version>3.3.1</apollo-client-maven-plugin.version>
+        <kafka-log4j-appender.version>2.6.0</kafka-log4j-appender.version>
     </properties>
 
     <dependencyManagement>
@@ -110,6 +111,11 @@
                 <groupId>org.apache.avro</groupId>
                 <artifactId>avro</artifactId>
                 <version>${avro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-log4j-appender</artifactId>
+                <version>${kafka-log4j-appender.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
