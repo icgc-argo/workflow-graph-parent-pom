@@ -6,7 +6,7 @@
 
     <groupId>org.icgc_argo</groupId>
     <artifactId>workflow-graph-parent-pom</artifactId>
-    <version>1.8.0</version>
+    <version>1.9.0</version>
     <packaging>pom</packaging>
 
     <name>Workflow Graph Parent POM</name>
@@ -37,7 +37,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <springframework.boot.version>2.2.4.RELEASE</springframework.boot.version>
+        <springframework.boot.version>2.4.3</springframework.boot.version>
         <reactor-rabbitmq-streams.version>0.0.8</reactor-rabbitmq-streams.version>
         <graalvm-sdk.version>20.1.0</graalvm-sdk.version>
         <workflow-graph-lib.version>1.6.0</workflow-graph-lib.version>
