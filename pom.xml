@@ -6,7 +6,7 @@
 
     <groupId>org.icgc_argo</groupId>
     <artifactId>workflow-graph-parent-pom</artifactId>
-    <version>1.8.0</version>
+    <version>1.9.0-SNAPHOST</version>
     <packaging>pom</packaging>
 
     <name>Workflow Graph Parent POM</name>
