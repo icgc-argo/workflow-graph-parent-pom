@@ -12,10 +12,15 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: maven
-    command: ['cat']
-    tty: true
-    image: maven:3.6.3-openjdk-11
+    - name: maven
+      command: ['cat']
+      tty: true
+      image: maven:3.6.3-openjdk-11
+      env:
+        - name: HOME
+          value: /home/jenkins/agent
+  securityContext:
+      runAsUser: 1000
 """
         }
     }
